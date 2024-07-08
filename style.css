@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-items: flex-start;
+    width: auto;
+    height: 710px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.container .img-container:hover {
+    box-shadow: 2px 2px 20px 2px rgba(0, 0, 0, 0.5);
+}
+
+.container .img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    height: 700px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 20px;
+    border-radius: 20px;
+}
+
+.img-container img {
+    width: inherit;
+    height: inherit;
+    position: relative;
+    transform: scale(1.2);
+}
+
+.img-container figcaption {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    opacity: 0;  
+    visibility: hidden;
+    transform: translateX(-1.5rem);  
+    transition-property: transform, opacity, visibility; 
+}
+
+.img-container::after {
+    content: "";
+    width: 350px;
+    height: 700px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.4);
+    transition-property: opacity;
+}
+
+.img-container:hover::after {
+    opacity: 0;
+}
+
+.img-container:hover figcaption {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.img-container:hover img {
+    transform: scale(1.13);
+}
+
+.container .img-container, .img-container img, figcaption, .img-container::after {
+    transition: 0.5s ease-in-out 0.2s;
+}
+
+figcaption .img-name {
+    font-family: "Alex Brush", cursive;
+    font-size: 50px;
+    padding: 20px;
+    font-weight: 600;
+}
+
+figcaption .description-text {
+    width: inheritd;
+    height: 300px;  
+    font-size: 20px;
+    text-align: center;
+    margin: 100px 0 auto 0;
+    font-weight: 700;
+    padding: 20px;
+}
